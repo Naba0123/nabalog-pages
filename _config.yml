@@ -1,0 +1,10 @@
+title: Nabalog
+email: your-email@example.com
+description: >-
+  A simple blog site built with Jekyll and Docker.
+baseurl: ""
+url: ""
+
+theme: minima
+plugins:
+  - jekyll-feed
