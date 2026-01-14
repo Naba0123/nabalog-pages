@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<!-- <section>
+    <h1>Posts</h1>
+</section> -->
+
+<ul class="post-list">
+    {% assign all_notes = site.notes | where_exp: "item", "item.date" %}
+    {% assign sorted_notes = all_notes | sort: 'date' | reverse %}
+    {% for note in sorted_notes %}
+    <li>
+        <span class="post-meta">{{ note.date | date: "%Y-%m-%d" }}</span>
+        {% assign clean_url = note.url | remove: "/index" %}
+        <a class="post-link" href="{{ clean_url | relative_url }}">
+            {{ note.title | escape }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>

@@ -4,7 +4,16 @@ description: >-
   A simple blog site built with Jekyll and Docker.
 baseurl: ""
 url: ""
+author: "Naba"
+author_url: "https://naba0123.net/"
 
 theme: minima
+timezone: Asia/Tokyo
+
+collections:
+  notes:
+    output: true
+    permalink: /:path
+
 plugins:
   - jekyll-feed

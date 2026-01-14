@@ -18,6 +18,7 @@ help:
 	@echo "  make setup   - Install dependencies (bundle install)"
 	@echo "  make serve   - Start Jekyll server with Docker (livereload enabled)"
 	@echo "  make build   - Build Jekyll site with Docker"
+	@echo "  make post    - Create a new blog post"
 	@echo "  make clean   - Remove generated files ($(SITE_DIR), .jekyll-cache, .bundle)"
 
 setup:
@@ -45,3 +46,19 @@ build:
 
 clean:
 	rm -rf $(SITE_DIR) .jekyll-cache .bundle Gemfile.lock
+
+post:
+	@read -p "Enter post title: " title; \
+	read -p "Enter directory (e.g., 2026/0115-my-post): " dir_name; \
+	date=$$(date +%Y-%m-%d); \
+	target_dir="_notes/$$dir_name"; \
+	mkdir -p "$$target_dir"; \
+	filename="$$target_dir/index.md"; \
+	echo "---" > $$filename; \
+	echo "layout: post" >> $$filename; \
+	echo "title: \"$$title\"" >> $$filename; \
+	echo "date: $$date" >> $$filename; \
+	echo "image: " >> $$filename; \
+	echo "---" >> $$filename; \
+	echo "" >> $$filename; \
+	echo "New post dir created: $$target_dir"
