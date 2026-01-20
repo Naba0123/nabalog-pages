@@ -100,6 +100,15 @@ article header {
     margin-bottom: 0.5rem;
 }
 
+.post-content img,
+.post-content video,
+.post-content iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1.5rem auto;
+}
+
 .post-content ul,
 .post-content ol {
     margin: 1rem 0 1rem 2rem;
